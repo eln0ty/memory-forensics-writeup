@@ -1,6 +1,6 @@
 # 2019 Defcon DFIR CTF Write-up "Memory forensics"
 
-Hello forks,
+Hello folks,
 
 I'm solving memory  forensics challenge with `volatility 2` framework from **Defcon DFIR CTF 2019** [here](https://defcon2019.ctfd.io/challenges)
 
