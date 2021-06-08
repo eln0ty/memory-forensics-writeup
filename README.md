@@ -151,8 +151,7 @@ We used  ***-B 30*** to get previous 30 line before the dll file.
 
 *************
 *************
-*************
-*************
+
 
 
 
@@ -340,5 +339,8 @@ From previous questions we already know the infected process but we can dump the
 
 ### `flag<3496>`
 
+*************
+*************
+Thank you for reading ^_^
 
 
