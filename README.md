@@ -76,6 +76,7 @@ We use plug-in `pslist`  it list all processes run in the memory :
 
 
 Solve:-
+
 Just use `pstree` plug-in and you will see the parents and children but I will `grep` the processes to save effort and I used `A1` to see 1 line under wscript process : 
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pstree |grep -A1 wscript.exe`
@@ -98,6 +99,7 @@ it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's cont
 
 
 Solve:-
+
 `netscan` plug-in is used to discover IPs and protocols in the memory and look under 'Local Address' column :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
@@ -116,6 +118,7 @@ Solve:-
 
 
 Solve:-
+
 We still in `netscan` solution.. Just scroll down  and look to **Foreign Address** column :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
@@ -136,6 +139,7 @@ We still in `netscan` solution.. Just scroll down  and look to **Foreign Address
 
 
 Solve:-
+
 Look to name, this is a dll file so we use `dlllist` plug-in and explore it's results at the first then..
 
 use `grep` to specify the flag
@@ -161,6 +165,7 @@ We used  ***-B 30*** to get previous 30 line before the dll file.
 
 
 Solve:-
+
 First, We will dump the executable file for malicious process
 
 second, We will calculate the hash
@@ -335,6 +340,7 @@ It's `mftparser` plug-in time
 
 
 Solve:-
+
 From previous questions we already know the infected process but we can dump the executable file with `procdump` and check its hash on  [VirusTotal Report](https://www.virustotal.com/gui/file/b6bdfee2e621949deddfc654dacd7bb8fce78836327395249e1f9b7b5ebfcfb1/detection)
 
 ### `flag<3496>`
