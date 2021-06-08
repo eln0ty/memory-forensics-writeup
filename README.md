@@ -18,7 +18,7 @@ Lets G00000 ...
 
 Solve:-
 
-we just can use a tool `sha1sum` to get the hash.
+We just can use a tool `sha1sum` to get the hash.
 
 ### **`sha1sum Triage.mem`**
 
@@ -35,7 +35,7 @@ we just can use a tool `sha1sum` to get the hash.
 
 Solve:-
 
-We can use a plug-in `imageinfo` and choose the first suggestion :
+We can use a plug-in `imageinfo` and choose the first suggestion.
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem imageinfo`
 
@@ -56,7 +56,7 @@ This is essential step in the discovery process and we will use the `profile` 4e
 
 Solve:-
 
-We can use plug-in `pslist`  it list all processes run in the memory :
+We can use plug-in `pslist`  it list all processes run in the memory.
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pslist`
 
@@ -77,7 +77,7 @@ We can use plug-in `pslist`  it list all processes run in the memory :
 
 Solve:-
 
-Just use `pstree` plug-in and you will see the parents and children but I will `grep` the processes to save effort and I used `A1` to see 1 line under wscript process : 
+Just use `pstree` plug-in and you will see the parents and children but I will `grep` the processes to save effort and I used `A1` to see 1 line under wscript process.
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pstree |grep -A1 wscript.exe`
 
@@ -85,7 +85,7 @@ Just use `pstree` plug-in and you will see the parents and children but I will `
 
 ### `flag<UWkpjFjDzM.exe>`
 
-it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's continue 
+It seems like a **malicious** **process**  Hmmmmmmmm .. Let's continue...
 
 
 *************
@@ -100,7 +100,7 @@ it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's cont
 
 Solve:-
 
-`netscan` plug-in is used to discover IPs and protocols in the memory and look under 'Local Address' column :
+`netscan` plug-in is used to discover IPs and protocols in the memory and look under 'Local Address' column.
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
 
@@ -119,7 +119,7 @@ Solve:-
 
 Solve:-
 
-We still in `netscan` solution.. Just scroll down  and look to **Foreign Address** column :
+We still in `netscan` solution.. Just scroll down and look to **Foreign Address** column.
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
 
@@ -166,9 +166,9 @@ We used  ***-B 30*** to get previous 30 line before the dll file.
 
 Solve:-
 
-First, We will dump the executable file for malicious process
+First, we will dump the executable file for malicious process.
 
-second, We will calculate the hash
+second, we will calculate the hash.
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 procdump -p 3496 --dump-dir=./`
 
@@ -190,7 +190,7 @@ second, We will calculate the hash
 
 Solve:-
 
-use `hashdump` and check bob :
+Use `hashdump` and check bob.
 
 result =  name : :id: : account hash : pass hash
 
@@ -212,7 +212,7 @@ result =  name : :id: : account hash : pass hash
 
 Solve:-
 
-just explore with `vadinfo` then use grep :
+Just explore with `vadinfo` then use grep.
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 vadinfo | grep "0xfffffa800577ba10" -A3`
 
@@ -232,7 +232,7 @@ just explore with `vadinfo` then use grep :
 
 Solve:-
 
-from previous plug-in we can understand the results so we can grep with the right text :
+From previous plug-in we can understand the results so we can grep with the right text.
 
 `python2 /opt/volatility/vol.py -f Triage.mem--profile=Win7SP1x64 vadinfo | grep "Start 0x00000000033c0000 End 0x00000000033dffff" -A3`
 
@@ -272,7 +272,7 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 
 Solve:-
 
-`shimache` plug-in gets it directly with grep
+`shimache` plug-in gets it directly with grep.
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 shimcache | grep "2019-03-07"`
 
@@ -292,9 +292,9 @@ Solve:-
 
 Solve:-
 
-First, we will dump the memory space with contain the notepad content then.. We will search in the dumped file
+First, we will dump the memory space with contain the notepad content then.. We will search in the dumped file.
 
-After trying The flag is encoded :)  so we used `-e l`
+After trying The flag is encoded :)  so we used `-e l`.
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 memdump -p 3032 --dump-dir=./`
 
@@ -316,11 +316,11 @@ After trying The flag is encoded :)  so we used `-e l`
 
 Solve:-
 
-record? Hmmmmm... Did you heard about **Master file table**?
+Record? Hmmmmm... Did you heard about **Master file table**?
 This hold information about all files and the directories in the NNTFS system, this includes the record number.
-For more information look [here](https://docs.microsoft.com/en-us/windows/win32/fileio/master-file-table) and mftparser can do our job
+For more about mft information look at [here](https://docs.microsoft.com/en-us/windows/win32/fileio/master-file-table) and mftparser can do our job
 
-It's `mftparser` plug-in time
+It's `mftparser` plug-in time.
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 mftparser | grep "59045" -A 20`
 
