@@ -25,7 +25,8 @@ we just using tool `sha1sum` to get the hash.
 ### **`flag<C95E8CC8C946F95A109EA8E47A6800DE10A27ABD>`**
 
 
-
+*************
+*************
 
 
 ### 02. pr0file - 10 Points
@@ -45,6 +46,9 @@ We using a plug-in `imageinfo` and choose the first suggestion :
 This is essential step in the discovery process and we will use the `profile` 4ever with volatility 2.
 
 
+*************
+*************
+
 
 ### 03. hey, write this down - 12 Points
 
@@ -61,6 +65,8 @@ We use plug-in `pslist`  it list all processes run in the memory :
 ### `flag<3032>`
 
 
+*************
+*************
 
 
 
@@ -81,6 +87,8 @@ Just use `pstree` plug-in and you will see the parents and children but I will `
 it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's continue 
 
 
+*************
+*************
 
 
 
@@ -98,6 +106,8 @@ it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's cont
 
 ### **`flag<10.0.0.101> `**
 
+*************
+*************
 
 
 ### 06. intel - 18 Points
@@ -115,6 +125,8 @@ We still in `netscan` solution.. Just scroll down  and look to **Foreign Address
 ### `flag<10.0.0.106>`
 
 
+*************
+*************
 
 
 
@@ -137,6 +149,10 @@ use `grep` to specify the flag
 We used  ***-B 30*** to get previous 30 line before the dll file.
 
 
+*************
+*************
+*************
+*************
 
 
 
@@ -159,6 +175,8 @@ second, We will calculate the hash
 ### `flag<690ea20bc3bdfb328e23005d9a80c290>`
 
 
+*************
+*************
 
 
 
@@ -180,6 +198,8 @@ result =  name : :id: : account hash : pass hash
 
 
 
+*************
+*************
 
 
 ### 10. vad the impaler - 25 Points
@@ -197,6 +217,8 @@ just explore with `vadinfo` then use grep :
 ### `flag<PAGE_READONLY>`
 
 
+*************
+*************
 
 
 
@@ -215,6 +237,8 @@ from previous plug-in we can understand the results so we can grep with the righ
 #### `flag<PAGE_NOACCESS>`
 
 
+*************
+*************
 
 
 
@@ -233,6 +257,8 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 ### `flag<vhjReUDEuumrX>`
 
 
+*************
+*************
 
 
 
@@ -251,6 +277,8 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 ### `flag<Skype.exe>`
 
 
+*************
+*************
 
 
 
@@ -276,6 +304,8 @@ REDBULL_IS_LIFE ??? I hate this shit.. what everrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr 
 
 
 
+*************
+*************
 
 
 ### 15. 8675309 - 35 Points
@@ -295,6 +325,8 @@ It's `mftparser` plug-in time
 #### `flag<EMPLOY~1.XLS>`
 
 
+*************
+*************
 
 
 
