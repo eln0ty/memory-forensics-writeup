@@ -56,7 +56,7 @@ We use plug-in `pslist`  it list all processes run in the memory :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pslist`
 
-![](Screenshot%20from%202021-06-07%2018-27-51.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-07%2018-27-51.png)
 
 ### `flag<3032>`
 
@@ -74,7 +74,7 @@ Just use `pstree` plug-in and you will see the parents and children but I will `
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pstree |grep -A1 wscript.exe`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-07 18-38-16.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-07%2018-38-16.png)
 
 ### `flag<UWkpjFjDzM.exe>`
 
@@ -94,7 +94,7 @@ it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's cont
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-07 18-48-48.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-07%2018-48-48.png)
 
 ### **`flag<10.0.0.101> `**
 
@@ -110,7 +110,7 @@ We still in `netscan` solution.. Just scroll down  and look to **Foreign Address
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-07 18-56-24.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-07%2018-56-24.png)
 
 ### `flag<10.0.0.106>`
 
@@ -130,7 +130,7 @@ use `grep` to specify the flag
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 dlllist | grep VCRUNTIME140.dll -B 30`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 14-49-33.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2014-49-33.png)
 
 ### `flag<OfficeClickToR>`
 
@@ -154,7 +154,7 @@ second, We will calculate the hash
 
 #### `md5sum executable.3496.exe`
 
-  ![](/home/varus/Pictures/Screenshot from 2021-06-08 14-56-41.png)
+  ![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2014-56-41.png)
 
 ### `flag<690ea20bc3bdfb328e23005d9a80c290>`
 
@@ -174,7 +174,7 @@ result =  name : :id: : account hash : pass hash
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 hashdump`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 15-05-16.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2015-05-16.png)
 
 ### `flag<aad3b435b51404eeaad3b435b51404ee>`
 
@@ -192,7 +192,7 @@ just explore with `vadinfo` then use grep :
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 vadinfo | grep "0xfffffa800577ba10" -A3`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 15-10-55.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2015-10-55.png)
 
 ### `flag<PAGE_READONLY>`
 
@@ -210,7 +210,7 @@ from previous plug-in we can understand the results so we can grep with the righ
 
 `python2 /opt/volatility/vol.py -f Triage.mem--profile=Win7SP1x64 vadinfo | grep "Start 0x00000000033c0000 End 0x00000000033dffff" -A3`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 15-17-46.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2015-17-46.png)
 
 #### `flag<PAGE_NOACCESS>`
 
@@ -228,7 +228,7 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 
 #### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 cmdline |grep ".vbs"`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 15-20-35.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2015-20-35.png)
 
 ### `flag<vhjReUDEuumrX>`
 
@@ -246,7 +246,7 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 shimcache | grep "2019-03-07"`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 15-27-03.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2015-27-03.png)
 
 ### `flag<Skype.exe>`
 
@@ -268,7 +268,7 @@ After trying The flag is encoded :)  so we used `-e l`
 
 #### `strings -e l 3032.dmp | grep "flag"`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 15-37-50.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2015-37-00.png)
 
 #### `flag<REDBULL_IS_LIFE>`
 
@@ -290,7 +290,7 @@ It's `mftparser` plug-in time
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 mftparser | grep "59045" -A 20`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-08 16-01-44.png)
+![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-08%2016-01-44.png)
 
 #### `flag<EMPLOY~1.XLS>`
 
