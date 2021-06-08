@@ -318,9 +318,8 @@ Solve:-
 
 Record? Hmmmmm... Did you heard about **Master file table**?
 This hold information about all files and the directories in the NNTFS system, this includes the record number.
-For more about mft information look at [here](https://docs.microsoft.com/en-us/windows/win32/fileio/master-file-table) and mftparser can do our job
-
-It's `mftparser` plug-in time.
+For more about mft information look at [here](https://docs.microsoft.com/en-us/windows/win32/fileio/master-file-table)
+`mftparser` plug-in can do our job.
 
 ##### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 mftparser | grep "59045" -A 20`
 
