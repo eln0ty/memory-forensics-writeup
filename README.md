@@ -4,7 +4,7 @@ Hello forks,
 
 I'm solving memory  forensics challenge with `volatility 2` framework from **Defcon DFIR CTF 2019** [here](https://defcon2019.ctfd.io/challenges)
 
-You can download the snapshot from [here](https://doc-0o-00-docs.googleusercontent.com/docs/securesc/hmgn11rkj02t4j0u8blbr087uu78ulgj/914e7p99768i5vbbf7jv8s04gdjmendu/1623079800000/08931478895717000723/)
+You can download the snapshot from [here](https://drive.google.com/drive/folders/1JwK8duNnrh12fo9J_02oQCz8HlILKAdW)
 
 Lets G00000 ...
 
