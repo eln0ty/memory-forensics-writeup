@@ -56,7 +56,7 @@ We use plug-in `pslist`  it list all processes run in the memory :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pslist`
 
-![](/home/varus/Pictures/Screenshot from 2021-06-07 18-27-57.png)
+![](Screenshot%20from%202021-06-07%2018-27-51.png)
 
 ### `flag<3032>`
 
