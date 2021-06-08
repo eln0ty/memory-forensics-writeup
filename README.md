@@ -8,7 +8,7 @@ You can download the snapshot from [here](https://drive.google.com/drive/folders
 
 Lets G00000 ...
 
-#######################
+***************************************
 
 
 
@@ -18,7 +18,7 @@ Lets G00000 ...
 
 Solve:-
 
-we just can use tool `sha1sum` to get the hash.
+we just can use a tool `sha1sum` to get the hash.
 
 ### **`sha1sum Triage.mem`**
 
@@ -35,7 +35,7 @@ we just can use tool `sha1sum` to get the hash.
 
 Solve:-
 
-We using a plug-in `imageinfo` and choose the first suggestion :
+We can use a plug-in `imageinfo` and choose the first suggestion :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem imageinfo`
 
@@ -56,7 +56,7 @@ This is essential step in the discovery process and we will use the `profile` 4e
 
 Solve:-
 
-We use plug-in `pslist`  it list all processes run in the memory :
+We can use plug-in `pslist`  it list all processes run in the memory :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pslist`
 
@@ -304,8 +304,6 @@ After trying The flag is encoded :)  so we used `-e l`
 
 #### `flag<REDBULL_IS_LIFE>`
 
-REDBULL_IS_LIFE ??? I hate this shit.. what everrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr :(
-
 
 
 *************
@@ -318,7 +316,9 @@ REDBULL_IS_LIFE ??? I hate this shit.. what everrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr 
 
 Solve:-
 
-record? Hmmmmmmmmmmmm... Did you heard about **Master file table**? never mind
+record? Hmmmmm... Did you heard about **Master file table**?
+This hold information about all files and the directories in the NNTFS system, this includes the record number.
+For more information look [here](https://docs.microsoft.com/en-us/windows/win32/fileio/master-file-table) and mftparser can do our job
 
 It's `mftparser` plug-in time
 
