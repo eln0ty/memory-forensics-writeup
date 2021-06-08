@@ -8,7 +8,7 @@ You can download the snapshot from [here](https://drive.google.com/drive/folders
 
 Lets G00000 ...
 
-**********************************************
+#######################
 
 
 
@@ -18,7 +18,7 @@ Lets G00000 ...
 
 Solve:-
 
-we just using tool `sha1sum` to get the hash.
+we just can use tool `sha1sum` to get the hash.
 
 ### **`sha1sum Triage.mem`**
 
