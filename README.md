@@ -38,7 +38,7 @@ We using a plug-in `imageinfo` and choose the first suggestion :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem imageinfo`
 
-#### ![](/home/varus/Pictures/Screenshot from 2021-06-07 18-08-53.png)
+#### ![](https://github.com/elnoty/memory-forensics-writeup/blob/main/Images/Screenshot%20from%202021-06-07%2018-08-53.png)
 
 ## `flag<Win7SP1x64>`
 
