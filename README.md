@@ -16,7 +16,7 @@ Lets G00000 ...
 
 “What is the SHA1 hash of triage.mem?”
 
-
+Solve:-
 
 we just using tool `sha1sum` to get the hash.
 
@@ -33,7 +33,7 @@ we just using tool `sha1sum` to get the hash.
 
 "What profile is the most appropriate for this machine? (ex: Win10x86_14393)"
 
-
+Solve:-
 
 We using a plug-in `imageinfo` and choose the first suggestion :
 
@@ -54,7 +54,7 @@ This is essential step in the discovery process and we will use the `profile` 4e
 
 “What was the process ID of notepad.exe?”
 
-
+Solve:-
 
 We use plug-in `pslist`  it list all processes run in the memory :
 
@@ -75,7 +75,7 @@ We use plug-in `pslist`  it list all processes run in the memory :
 “Name the child processes of wscript.exe.”
 
 
-
+Solve:-
 Just use `pstree` plug-in and you will see the parents and children but I will `grep` the processes to save effort and I used `A1` to see 1 line under wscript process : 
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem pstree |grep -A1 wscript.exe`
@@ -97,7 +97,7 @@ it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's cont
 “What was the IP address of the machine at the time the RAM dump was created?”
 
 
-
+Solve:-
 `netscan` plug-in is used to discover IPs and protocols in the memory and look under 'Local Address' column :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
@@ -115,7 +115,7 @@ it seems like a **malicious** **process**  Hmmmmmmmmmmmmmmmmmmmmmm .. Let's cont
 “Based on the answer regarding to the infected PID, can you determine what the IP of the attacker was?”
 
 
-
+Solve:-
 We still in `netscan` solution.. Just scroll down  and look to **Foreign Address** column :
 
 ### `python2 /opt/volatility/vol.py -f Triage.mem --profile=Win7SP1x64 netscan`
@@ -135,7 +135,7 @@ We still in `netscan` solution.. Just scroll down  and look to **Foreign Address
 “What process name is VCRUNTIME140.dll associated with?”
 
 
-
+Solve:-
 Look to name, this is a dll file so we use `dlllist` plug-in and explore it's results at the first then..
 
 use `grep` to specify the flag
@@ -160,7 +160,7 @@ We used  ***-B 30*** to get previous 30 line before the dll file.
 “What is the md5 hash value the potential malware on the system?”
 
 
-
+Solve:-
 First, We will dump the executable file for malicious process
 
 second, We will calculate the hash
@@ -183,7 +183,7 @@ second, We will calculate the hash
 
 “What is the LM hash of bobs account?”
 
-
+Solve:-
 
 use `hashdump` and check bob :
 
@@ -205,7 +205,7 @@ result =  name : :id: : account hash : pass hash
 
 “What protections does the VAD node at 0xfffffa800577ba10 have?”
 
-
+Solve:-
 
 just explore with `vadinfo` then use grep :
 
@@ -225,7 +225,7 @@ just explore with `vadinfo` then use grep :
 
 “What protections did the VAD starting at 0x00000000033c0000 and ending at 0x00000000033dffff have?"
 
-
+Solve:-
 
 from previous plug-in we can understand the results so we can grep with the right text :
 
@@ -245,7 +245,7 @@ from previous plug-in we can understand the results so we can grep with the righ
 
 “There was a VBS script run on the machine. What is the name of the script? (submit without file extension)”
 
-
+Solve:-
 
 With `cmdline`  plug-in we will get the result directly :dancer:
 
@@ -265,7 +265,7 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 
 “An application was run at 2019-03-07 23:06:58 UTC, what is the name of the program? (Include extension)”
 
-
+Solve:-
 
 `shimache` plug-in gets it directly with grep
 
@@ -285,7 +285,7 @@ With `cmdline`  plug-in we will get the result directly :dancer:
 
 “What was written in notepad.exe in the time of the memory dump?”
 
-
+Solve:-
 
 First, we will dump the memory space with contain the notepad content then.. We will search in the dumped file
 
@@ -311,7 +311,7 @@ REDBULL_IS_LIFE ??? I hate this shit.. what everrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr 
 
 “What is the shortname of the file at file record 59045?”
 
-
+Solve:-
 
 record? Hmmmmmmmmmmmm... Did you heard about **Master file table**? never mind
 
@@ -334,7 +334,7 @@ It's `mftparser` plug-in time
 “This box was exploited and is running meterpreter. What PID was infected?”
 
 
-
+Solve:-
 From previous questions we already know the infected process but we can dump the executable file with `procdump` and check its hash on  [VirusTotal Report](https://www.virustotal.com/gui/file/b6bdfee2e621949deddfc654dacd7bb8fce78836327395249e1f9b7b5ebfcfb1/detection)
 
 ### `flag<3496>`
