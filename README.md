@@ -317,7 +317,7 @@ After trying The flag is encoded :)  so we used `-e l`.
 Solve:-
 
 Did you heard about **Master file table**?
-This hold information about all files and the directories in the NNTFS system, this includes the record number.
+This hold information about all files and the directories in the NTFS system, this includes the record number.
 For more about mft information look at [here](https://docs.microsoft.com/en-us/windows/win32/fileio/master-file-table).
 
 `mftparser` plug-in can do our job.
